@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Acadêmico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Sistema Acadêmico</h1>
+  <p>Controle de Usuários e Interessados</p>
+</header>
+
+<main class="card">
+
+  <!-- LOGIN -->
+  <section id="loginSection">
+    <h2>🔐 Acesso ao Sistema</h2>
+
+    <label>Usuário</label>
+    <input type="text" id="loginUser" placeholder="Digite seu usuário">
+
+    <label>Senha</label>
+    <input type="password" id="loginPass" placeholder="Digite sua senha">
+
+    <button onclick="login()">Entrar</button>
+
+    <div class="info">
+      <strong>Usuários de teste:</strong><br>
+      admin / 123 (Administrador)<br>
+      atendente / 123 (Atendente)
+    </div>
+  </section>
+
+  <!-- SISTEMA -->
+  <section id="appSection" class="hidden">
+
+    <nav class="menu">
+      <button onclick="showArea('home')">🏠 Início</button>
+      <button id="btnUsuarios" onclick="showArea('usuarios')">👤 Usuários</button>
+      <button onclick="showArea('interessados')">🎓 Interessados</button>
+      <button class="logout" onclick="logout()">🚪 Sair</button>
+    </nav>
+
+    <div id="home">
+      <h2>Bem-vindo</h2>
+      <p id="welcome"></p>
+    </div>
+
+    <div id="usuarios" class="hidden">
+      <h2>👤 Cadastro de Usuários</h2>
+
+      <label>Usuário</label>
+      <input id="newUser">
+
+      <label>Senha</label>
+      <input id="newPass">
+
+      <label>Perfil</label>
+      <select id="newRole">
+        <option value="admin">Administrador</option>
+        <option value="atendente">Atendente</option>
+      </select>
+
+      <button onclick="addUser()">Cadastrar</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Perfil</th>
+          </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+      </table>
+    </div>
+
+    <div id="interessados" class="hidden">
+      <h2>🎓 Cadastro de Interessados</h2>
+
+      <label>Nome</label>
+      <input id="intNome">
+
+      <label>Curso</label>
+      <input id="intCurso">
+
+      <button onclick="addInteressado()">Cadastrar</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Curso</th>
+          </tr>
+        </thead>
+        <tbody id="intTable"></tbody>
+      </table>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
